@@ -11,6 +11,7 @@ import {
   UnsubscribeResponse,
   Notification,
 } from "@justpush/api-types";
+import fetch from "cross-fetch";
 import axios from "axios";
 
 import { signMessage } from "./utils";
@@ -20,14 +21,18 @@ import {
   Observable,
   InMemoryCache,
   gql,
+  split,
+  HttpLink,
 } from "@apollo/client/core";
 import { WebSocket } from "ws";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 
 import { createClient } from "graphql-ws";
+import { getMainDefinition } from "@apollo/client/utilities";
 
 const JUST_PUSH_API_URL = "https://api.justpush.app/v1/";
-const JUST_PUSH_WS_URL = "ws://api.justpush.app/v1/graphql";
+const JUST_PUSH_GRAPHQL_URL = "https://api.justpush.app/v1/graphql";
+const JUST_PUSH_WS_URL = "wss://api.justpush.app/v1/subscription";
 
 const NOTIFICATION_SUBSCRIPTION = gql`
   subscription OnNotificationAdded($userId: String!) {
@@ -81,13 +86,29 @@ export class JustPush {
     this.tronWeb = tronWeb;
     this.address = tronWeb.defaultAddress.base58;
     this.endpoint = JUST_PUSH_API_URL;
+
+    const httpLink = new HttpLink({ uri: JUST_PUSH_GRAPHQL_URL, fetch });
+    const wsLink = new GraphQLWsLink(
+      createClient({
+        webSocketImpl: WebSocket,
+        url: JUST_PUSH_WS_URL, /// should be wss://
+      })
+    );
+
+    const splitLink = split(
+      ({ query }) => {
+        const definition = getMainDefinition(query);
+        return (
+          definition.kind === "OperationDefinition" &&
+          definition.operation === "subscription"
+        );
+      },
+      wsLink,
+      httpLink
+    );
+
     this.graphqlClient = new ApolloClient({
-      link: new GraphQLWsLink(
-        createClient({
-          webSocketImpl: WebSocket,
-          url: JUST_PUSH_WS_URL,
-        })
-      ),
+      link: splitLink,
       cache: new InMemoryCache(),
     });
   }
