@@ -10,7 +10,7 @@
   <p>
     <a href="https://docs.justpush.app/"><img alt="Docs" src="https://img.shields.io/badge/docs-justpush-informational" /></a>
     <a href="https://discord.gg/Baqkey4sPK"><img alt="Discord Chat" src="https://img.shields.io/discord/1037419699409006592?color=yellowgreen" /></a>
-    <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/github/license/justpush-protocol/frontend?color=blueviolet" /></a>
+    <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/github/license/justpush-protocol/sdk?color=blueviolet" /></a>
   </p>
 </div>
 
@@ -30,7 +30,7 @@ The protocol consists of several componenets.
 
 ### JustPush SDK
 
-[[github.com/justpush-protocol/sdk](https://github.com/justpush-protocol/sdk)]
+This repository
 
 ### Dapp
 
