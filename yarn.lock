@@ -1068,13 +1068,6 @@
   resolved "https://registry.yarnpkg.com/@justpush/api-types/-/api-types-0.1.0-alpha.1.tgz#1707f839635073620902f64d3f532921af5a98c6"
   integrity sha512-KueLbwBWbWNe7iC/dHmH+POo6SV7+ZHo7ziRHI78GhBO0mdrkIr+W393SWC0j9FxlUSgra5wZ2MXPYj4V4HPhw==
 
-"@justpush/contracts@^0.1.0-alpha.2":
-  version "0.1.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@justpush/contracts/-/contracts-0.1.0-alpha.2.tgz#aec7e7d5ce4f07da35f0b4c3a57ec9a5677b806e"
-  integrity sha512-NV/s+Cd6/p+eUJNywASyAg1j8Usrc+xCgXdXQ1n0msbwclujGIZ9bVjST+Bg/XeMUDt2xrtdC88setOAFDdI5A==
-  dependencies:
-    uuid "^9.0.0"
-
 "@rollup/plugin-alias@^3.1.1":
   version "3.1.9"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-3.1.9.tgz#a5d267548fe48441f34be8323fb64d1d4a1b3fdf"
@@ -3462,11 +3455,6 @@ util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
-
-uuid@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
-  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 vscode-oniguruma@^1.6.1:
   version "1.6.2"
